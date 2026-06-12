@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOA｜仙台・出張マッサージ</title>
+  <meta name="description" content="仙台市内および近郊への出張マッサージ。ホテル・ご自宅まで伺います。国家資格保有セラピストによるオイルマッサージ・リンパマッサージ・フットケア。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #fff9f7; color: #3a2820; }
+
+    nav { background: #fff4f0; border-bottom: 0.5px solid #f0d0c0; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; position: sticky; top: 0; z-index: 10; }
+    .nav-logo { color: #c05840; font-size: 17px; font-weight: 500; letter-spacing: 5px; }
+    .nav-sub { color: #d08870; font-size: 10px; letter-spacing: 1px; margin-top: 1px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: #c08070; font-size: 12px; text-decoration: none; }
+    .nav-links a:hover { color: #c05840; }
+    .nav-links a.active { color: #c05840; font-weight: 500; }
+
+    .hero { background: linear-gradient(150deg, #fdeee8 0%, #f8ddd4 50%, #f2cfc4 100%); padding: 68px 40px 64px; text-align: center; }
+    .hero-badge { display: inline-block; background: rgba(192,88,64,0.10); color: #c05840; font-size: 11px; letter-spacing: 2px; padding: 5px 18px; border-radius: 20px; border: 0.5px solid rgba(192,88,64,0.22); margin-bottom: 22px; }
+    .hero h1 { font-size: 28px; font-weight: 400; color: #7a2e18; line-height: 1.6; margin-bottom: 14px; letter-spacing: 1px; }
+    .hero-sub { font-size: 13px; color: #a85840; margin-bottom: 32px; line-height: 2.1; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: #c05840; color: #fff; border: none; padding: 12px 28px; border-radius: 30px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
+    .btn-line { background: #06c755; color: #fff; border: none; padding: 12px 28px; border-radius: 30px; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
+
+    .section { padding: 52px 32px; }
+    .section-label { font-size: 10px; letter-spacing: 3px; color: #c07860; margin-bottom: 6px; text-transform: uppercase; }
+    .section-title { font-size: 21px; font-weight: 500; color: #5a2818; margin-bottom: 8px; }
+    .section-desc { font-size: 13px; color: #906050; margin-bottom: 28px; line-height: 1.9; }
+    .bg-soft { background: #fff4f0; }
+    .divider { border: none; border-top: 0.5px solid #f0d0c0; margin: 0 32px; }
+
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .course-card { background: #fff9f7; border-radius: 12px; border: 0.5px solid #f0c8b8; padding: 24px 18px; position: relative; }
+    .course-card.top { border: 1.5px solid #c05840; }
+    .top-badge { position: absolute; top: -11px; left: 16px; background: #c05840; color: #fff; font-size: 10px; padding: 3px 12px; border-radius: 10px; font-weight: 500; }
+    .course-icon { font-size: 22px; color: #c07060; margin-bottom: 10px; }
+    .course-tier { font-size: 10px; letter-spacing: 2px; color: #c08060; margin-bottom: 5px; }
+    .course-name { font-size: 16px; font-weight: 500; margin-bottom: 8px; color: #5a2818; }
+    .course-desc { font-size: 12px; color: #906050; line-height: 1.8; margin-bottom: 14px; }
+    .price-row { display: flex; gap: 14px; flex-wrap: wrap; padding-top: 14px; border-top: 0.5px solid #f0d0c0; }
+    .price-time { font-size: 11px; color: #b08070; margin-bottom: 2px; }
+    .price-val { font-size: 17px; font-weight: 500; color: #c05840; }
+    .price-val span { font-size: 10px; color: #c09080; font-weight: 400; }
+
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 14px; }
+    .info-card { background: #fff9f7; border-radius: 12px; border: 0.5px solid #f0c8b8; padding: 18px 16px; }
+    .info-icon { font-size: 20px; color: #c07060; margin-bottom: 10px; }
+    .info-title { font-size: 13px; font-weight: 500; margin-bottom: 6px; color: #5a2818; }
+    .info-text { font-size: 12px; color: #906050; line-height: 1.8; }
+    .info-note { margin-top: 10px; font-size: 11px; color: #b08060; border-left: 2px solid #e09070; padding-left: 10px; line-height: 1.8; }
+
+    .therapist-box { background: #fff4f0; border-radius: 12px; border: 0.5px solid #f0c8b8; padding: 26px; display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+    .therapist-avatar { width: 78px; height: 78px; border-radius: 50%; background: linear-gradient(135deg, #e09070, #c05840); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 26px; flex-shrink: 0; }
+    .therapist-name { font-size: 19px; font-weight: 500; margin-bottom: 4px; color: #5a2818; }
+    .therapist-title { font-size: 11px; color: #c07060; margin-bottom: 10px; letter-spacing: 1px; }
+    .therapist-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tag { background: rgba(192,88,64,0.09); color: #a04030; font-size: 11px; padding: 4px 12px; border-radius: 14px; border: 0.5px solid rgba(192,88,64,0.20); }
+    .therapist-bio { font-size: 13px; color: #906050; line-height: 1.9; }
+
+    .voice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+    .voice-card { background: #fff9f7; border-radius: 12px; border: 0.5px solid #f0c8b8; padding: 18px; }
+    .stars { color: #d0843c; font-size: 13px; margin-bottom: 8px; }
+    .voice-text { font-size: 12px; color: #906050; line-height: 1.9; margin-bottom: 10px; }
+    .voice-author { font-size: 11px; color: #b08060; }
+
+    .reserve-box { background: linear-gradient(135deg, #f8ddd4 0%, #f2cfc4 100%); border-radius: 12px; padding: 36px 28px; text-align: center; }
+    .reserve-box h2 { color: #7a2e18; font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+    .reserve-box p { color: #a85840; font-size: 13px; margin-bottom: 22px; line-height: 1.9; }
+    .reserve-note { font-size: 11px; color: #b87858; margin-top: 14px; }
+
+    .footer { background: #4a2010; padding: 32px; text-align: center; }
+    .footer-logo { color: #f0c8b0; font-size: 18px; font-weight: 400; letter-spacing: 6px; margin-bottom: 4px; }
+    .footer-tagline { color: #a06040; font-size: 10px; letter-spacing: 2px; margin-bottom: 16px; }
+    .footer-info { font-size: 11px; color: #906050; line-height: 2.2; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 48px; }
+      .hero h1 { font-size: 22px; }
+      .section { padding: 40px 20px; }
+      nav { padding: 12px 16px; }
+      .nav-links { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div>
+      <div class="nav-logo">NOA</div>
+      <div class="nav-sub">出張マッサージ｜仙台</div>
+    </div>
+    <div class="nav-links">
+      <a href="#course">コース</a>
+      <a href="treatment.html">施術について</a>
+      <a href="#location">出張先</a>
+      <a href="#therapist">セラピスト</a>
+      <a href="#reserve">予約</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-badge">仙台・出張マッサージ</div>
+    <h1>あなたのいる場所へ、<br>上質な癒しをお届けします。</h1>
+    <p class="hero-sub">
+      ホテルのお部屋・ご自宅まで出張対応。<br>
+      女性のお客様に寄り添う、プロの施術。<br>
+      国家資格保有セラピストが丁寧にご対応いたします。
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://lin.ee/8ZG1Gcg" target="_blank">LINEで予約・相談する</a>
+      <a class="btn-line" href="https://lin.ee/8ZG1Gcg" target="_blank">LINEでお友だち追加</a>
+    </div>
+  </div>
+
+  <div class="section" id="course">
+    <div class="section-label">Course &amp; Price</div>
+    <div class="section-title">コース・料金</div>
+    <p class="section-desc">全コース出張費込み・税込価格です。施術前にカウンセリングを行い、お体の状態に合わせてご対応します。</p>
+    <div class="course-grid">
+
+      <div class="course-card">
+        <div class="course-tier">COURSE 01</div>
+        <div class="course-name">マッサージコース</div>
+        <p class="course-desc">もみほぐし・ボディケアをメインとした全身施術。筋肉のこりや緊張を丁寧にほぐします。初めての方にもおすすめです。</p>
+        <div class="price-row">
+          <div><div class="price-time">60分</div><div class="price-val">¥5,000 <span>税込</span></div></div>
+          <div><div class="price-time">90分</div><div class="price-val">¥7,000 <span>税込</span></div></div>
+          <div><div class="price-time">120分</div><div class="price-val">¥9,000 <span>税込</span></div></div>
+        </div>
+      </div>
+
+      <div class="course-card top">
+        <div class="top-badge">人気コース</div>
+        <div class="course-tier">COURSE 02</div>
+        <div class="course-name">オイルマッサージコース</div>
+        <p class="course-desc">良質なオイルを使った全身トリートメント。肌なじみのよいオイルで深いリラクゼーションへ。女性に特に人気のコースです。</p>
+        <div class="price-row">
+          <div><div class="price-time">60分</div><div class="price-val">¥5,500 <span>税込</span></div></div>
+          <div><div class="price-time">90分</div><div class="price-val">¥7,500 <span>税込</span></div></div>
+          <div><div class="price-time">120分</div><div class="price-val">¥9,500 <span>税込</span></div></div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tier">COURSE 03</div>
+        <div class="course-name">リンパマッサージコース</div>
+        <p class="course-desc">リンパの流れを促進する上級トリートメント。むくみ・老廃物ケアに効果的。美容・健康意識の高い方におすすめです。</p>
+        <div class="price-row">
+          <div><div class="price-time">60分</div><div class="price-val">¥7,500 <span>税込</span></div></div>
+          <div><div class="price-time">90分</div><div class="price-val">¥10,000 <span>税込</span></div></div>
+          <div><div class="price-time">120分</div><div class="price-val">¥13,000 <span>税込</span></div></div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-tier">COURSE 04</div>
+        <div class="course-name">フットケアコース</div>
+        <p class="course-desc">足全体のリフレクソロジー＋ふくらはぎのむくみケアを組み合わせたコース。立ち仕事・旅行疲れにも最適です。</p>
+        <div class="price-row">
+          <div><div class="price-time">45分</div><div class="price-val">¥4,500 <span>税込</span></div></div>
+          <div><div class="price-time">60分</div><div class="price-val">¥5,500 <span>税込</span></div></div>
+          <div><div class="price-time">90分</div><div class="price-val">¥7,500 <span>税込</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section bg-soft" id="location">
+    <div class="section-label">Location</div>
+    <div class="section-title">出張先について</div>
+    <p class="section-desc">仙台市内および近郊へ出張いたします。</p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-title">🏨 ホテル</div>
+        <p class="info-text">出張・旅行中のホテルのお部屋へお伺いします。チェックイン後にご連絡ください。</p>
+      </div>
+      <div class="info-card">
+        <div class="info-title">🏠 ご自宅</div>
+        <p class="info-text">ご自宅へお伺いします。施術後そのままお休みいただけます。</p>
+      </div>
+      <div class="info-card">
+        <div class="info-title">📍 場所がない方はご相談を</div>
+        <p class="info-text">レンタルルームをご用意することも可能です。まずはお気軽にご相談ください。</p>
+        <p class="info-note">レンタルルームご利用の場合は、お早めのご予約をお願いいたします。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" id="therapist">
+    <div class="section-label">Therapist</div>
+    <div class="section-title">セラピスト紹介</div>
+    <p class="section-desc">経験豊富なセラピストが、お客様一人ひとりに合わせた丁寧な施術をいたします。</p>
+    <div class="therapist-box">
+      <div class="therapist-avatar">👤</div>
+      <div>
+        <div class="therapist-name">代表セラピスト</div>
+        <div class="therapist-title">NOA / 仙台出張マッサージ</div>
+        <div class="therapist-tags">
+          <span class="tag">国家資格保有</span>
+          <span class="tag">オイルトリートメント</span>
+          <span class="tag">リンパマッサージ</span>
+          <span class="tag">フットケア</span>
+        </div>
+        <p class="therapist-bio">国家資格を取得したセラピストです。女性のお客様が安心してご利用いただけるよう、施術前のカウンセリングを大切にしています。お体の気になる部位やご要望はお気軽にお聞かせください。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section bg-soft">
+    <div class="section-label">Reviews</div>
+    <div class="section-title">お客様の声</div>
+    <p class="section-desc">実際にご利用いただいたお客様からのご感想です。</p>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">仙台出張中にホテルへ来ていただきました。リンパコースのむくみへの効果が抜群で、施術後そのまま眠れました。</p>
+        <div class="voice-author">30代 女性・ホテル利用</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">自宅まで来てもらえるので移動不要で助かります。オイルマッサージの香りも心地よく、毎月リピートしています。</p>
+        <div class="voice-author">40代 女性・自宅利用</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">フットケアコースを受けました。一日歩き回った後のむくみがすっきり！また絶対来ていただきます。</p>
+        <div class="voice-author">20代 女性・ホテル利用</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">リンパマッサージコースを利用しました。最初は少し緊張していましたが、とても丁寧な対応で安心して施術を受けることができました。力加減もちょうど良く、終わった後は身体が軽くなった感じがしました。詳しくは書きませんが、「これは人気があるのも納得だな」と思える時間でした。また自分へのご褒美としてお願いしたいと思います。</p>
+        <div class="voice-author">40代 女性</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" id="reserve">
+    <div class="reserve-box">
+      <h2>LINEでご予約・ご相談</h2>
+      <p>
+        ご予約・ご相談・レンタルルームのご手配はLINEから承ります。<br>
+        希望コース・日時・出張先をメッセージでお送りください。
+      </p>
+      <a class="btn-line" href="https://lin.ee/8ZG1Gcg" target="_blank">LINEでお友だち追加・予約する</a>
+      <p class="reserve-note">お友だち追加後、メッセージをお送りください。折り返しご確認いたします。</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">NOA</div>
+    <div class="footer-tagline">出張マッサージ｜仙台</div>
+    <div class="footer-info">
+      営業時間：13:00〜23:00（最終受付 22:00）<br>
+      対応エリア：仙台市内および近郊<br>
+      © 2026 NOA. All rights reserved.
+    </div>
+  </div>
+
+</body>
+</html>
